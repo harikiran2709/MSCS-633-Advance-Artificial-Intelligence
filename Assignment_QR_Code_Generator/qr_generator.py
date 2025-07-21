@@ -8,7 +8,7 @@ def generate_qr(url: str, output_file: str = 'qrcode.png') -> None:
         url (str): The URL link.
         output_file (str): The filename for the output image.
     """
-    # Create qr code instance
+    # Create qr code
     qr = qrcode.QRCode(
         version=1,  # controls the size of the QR Code
         error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -18,7 +18,7 @@ def generate_qr(url: str, output_file: str = 'qrcode.png') -> None:
     qr.add_data(url)
     qr.make(fit=True)
 
-    # Create an image from the QR Code instance
+    # Create image
     img = qr.make_image(fill_color="black", back_color="white")
     img.save(output_file)
     print(f"QR code generated for the given url and saved as {output_file}")
